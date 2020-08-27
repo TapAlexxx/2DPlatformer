@@ -43,11 +43,11 @@ public class MonsterMovement : MonoBehaviour
 
         if (_currentPoint == 1)
         {
-            _spriteRenderer.flipX = false;
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
-            _spriteRenderer.flipX = true;
+            gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
     }
 }
