@@ -7319,6 +7319,7 @@ GameObject:
   - component: {fileID: 1258685273}
   - component: {fileID: 1258685275}
   - component: {fileID: 1258685274}
+  - component: {fileID: 1258685276}
   m_Layer: 5
   m_Name: PlayerCoinsCount
   m_TagString: Untagged
@@ -7385,6 +7386,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258685272}
   m_CullTransparentMesh: 0
+--- !u!114 &1258685276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258685272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67ea04c59baec94099524452c3640a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1258685274}
+  _player: {fileID: 1940586637}
 --- !u!1 &1263730998
 GameObject:
   m_ObjectHideFlags: 0
@@ -8566,8 +8581,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f99f03e5cf67346bda350b8373b213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinCount: 0
-  _coinCountText: {fileID: 1258685274}
+  _coinCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1258685276}
+        m_MethodName: UpdateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1940586645
 MonoBehaviour:
   m_ObjectHideFlags: 0

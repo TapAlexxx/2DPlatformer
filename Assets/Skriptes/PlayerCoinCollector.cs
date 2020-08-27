@@ -1,23 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerCoinCollector : MonoBehaviour
 {
-    [SerializeField] private int _coinCount;
-    [SerializeField] private Text _coinCountText;
+    [SerializeField] public int CoinCount { get; private set; }
+    [SerializeField] private UnityEvent _coinCollected;
 
-    private void Awake()
-    {
-        _coinCountText.text = $"You collected {_coinCount} coin(s)";
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent(out Coin coin))
         {
-            _coinCount += coin.CoinValue;
-            _coinCountText.text = $"You collected {_coinCount} coin(s)";
+            CoinCount += coin.CoinValue;
+            _coinCollected?.Invoke();
             Destroy(coin.gameObject);
         }
     }
